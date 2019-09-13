@@ -1,0 +1,58 @@
+[debug] [2019-08-23T15:34:59.942Z] ----------------------------------------------------------------------
+[debug] [2019-08-23T15:34:59.944Z] Command:       C:\Program Files\nodejs\node.exe Z:\Users\maisa.barros\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2019-08-23T15:34:59.944Z] CLI Version:   7.2.4
+[debug] [2019-08-23T15:34:59.944Z] Platform:      win32
+[debug] [2019-08-23T15:34:59.944Z] Node Version:  v12.4.0
+[debug] [2019-08-23T15:34:59.945Z] Time:          Fri Aug 23 2019 12:34:59 GMT-0300 (GMT-03:00)
+[debug] [2019-08-23T15:34:59.945Z] ----------------------------------------------------------------------
+[debug] 
+[info] i  Firebase optionally collects CLI usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+
+[info] i  To change your data collection preference at any time, run `firebase logout` and log in again.
+[info] 
+[info] Visit this URL on any device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=435055577&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2019-08-23T15:35:21.912Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
+
+[debug] [2019-08-23T15:35:42.923Z] Token Fetch Error: FirebaseError: Server Error. connect ETIMEDOUT 172.217.30.109:443
+    at Request._callback (Z:\Users\maisa.barros\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:30:31)
+    at self.callback (Z:\Users\maisa.barros\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:200:13)
+    at Request.EventEmitter.emit (domain.js:471:20)
+    at Request.onRequestError (Z:\Users\maisa.barros\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:881:8)
+    at ClientRequest.emit (events.js:200:13)
+    at ClientRequest.EventEmitter.emit (domain.js:471:20)
+    at TLSSocket.socketErrorListener (_http_client.js:402:9)
+    at TLSSocket.emit (events.js:200:13)
+    at TLSSocket.EventEmitter.emit (domain.js:471:20)
+[debug] [2019-08-23T15:36:29.163Z] ----------------------------------------------------------------------
+[debug] [2019-08-23T15:36:29.165Z] Command:       C:\Program Files\nodejs\node.exe Z:\Users\maisa.barros\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2019-08-23T15:36:29.165Z] CLI Version:   7.2.4
+[debug] [2019-08-23T15:36:29.165Z] Platform:      win32
+[debug] [2019-08-23T15:36:29.166Z] Node Version:  v12.4.0
+[debug] [2019-08-23T15:36:29.166Z] Time:          Fri Aug 23 2019 12:36:29 GMT-0300 (GMT-03:00)
+[debug] [2019-08-23T15:36:29.167Z] ----------------------------------------------------------------------
+[debug] 
+[info] i  Firebase optionally collects CLI usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+
+[info] i  To change your data collection preference at any time, run `firebase logout` and log in again.
+[info] 
+[info] Visit this URL on any device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=672600769&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2019-08-23T15:36:42.797Z] >>> HTTP REQUEST POST https://accounts.google.com/o/oauth2/token  
+
+[debug] [2019-08-23T15:37:03.821Z] Token Fetch Error: FirebaseError: Server Error. connect ETIMEDOUT 172.217.30.109:443
+    at Request._callback (Z:\Users\maisa.barros\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:30:31)
+    at self.callback (Z:\Users\maisa.barros\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:200:13)
+    at Request.EventEmitter.emit (domain.js:471:20)
+    at Request.onRequestError (Z:\Users\maisa.barros\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:881:8)
+    at ClientRequest.emit (events.js:200:13)
+    at ClientRequest.EventEmitter.emit (domain.js:471:20)
+    at TLSSocket.socketErrorListener (_http_client.js:402:9)
+    at TLSSocket.emit (events.js:200:13)
+    at TLSSocket.EventEmitter.emit (domain.js:471:20)

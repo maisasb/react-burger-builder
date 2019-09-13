@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import axios from '../../../axios-orders';
 import Button from '../../../components/UI/Button/Button';
 import classes from './ContactData.module.css';
 import interceptorsHandler from '../../../hoc/interceptorsHandler/interceptorsHandler';
 import Input from '../../../components/UI/Input/Input';
+import * as actions from '../../../store/actions/index';
+import { updateObject, checkValidity } from '../../../shared/utility';
+
 
 class ContactData extends Component {
 
@@ -104,65 +108,35 @@ class ContactData extends Component {
             formData[formElementId] = this.state.orderForm[formElementId].value;
         }
         const order = {
-            ingredients: this.props.ingredients,
+            ingredients: this.props.ings,
             price: this.props.price  ,
-            orderData: formData          
+            orderData: formData,
+            userId: this.props.userId      
         }
 
-        axios.post('/orders.json', order).then(response => {
-            this.props.history.push('/');
-        });
+        this.props.onOrderBurger(order, this.props.token);
         
-    }
-
-    checkValidity = (value, rules) => {
-
-        let isValid = true;
-        let message = '';
-
-        if (rules.required){
-            isValid = value.trim() !== '';
-            if (!isValid){
-                message = 'This field is required';
-
-            }
-        }
-
-        if (rules.minLength && isValid) {
-            isValid = value.length >= rules.minLength;
-            if (!isValid){
-                message = 'Min length is '+ rules.minLength;
-            }
-        }
-
-        if (rules.maxLength && isValid) {
-            isValid = value.length <= rules.maxLength;
-            if (!isValid){
-                message = 'Max length is '+ rules.maxLength;
-            }
-        }
-
-        return {isValid: isValid, message: message};
     }
 
     inputChangedHandler = (event, inputIdentifier) => {
-        //Clonei o objecto orderForm
-        const updatedOrderForm = {
-            ...this.state.orderForm
-        };
+        //Clonei o objecto orderForm        
         //Clonei o objeto que eu quero alterar, exemplo "name"
-        const updatedFormElement ={
-            ...updatedOrderForm[inputIdentifier]
-        };
         //Se fosse alterar as configurações do elemento "name" teria que clonar inclusive o elementConfig
 
-        updatedFormElement.value = event.target.value;
-        const validation = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
-        updatedFormElement.valid = validation.isValid;
-        updatedFormElement.message = validation.message;
-        updatedFormElement.touched = true;
-        updatedOrderForm[inputIdentifier] = updatedFormElement;
+        const formElement =  this.state.orderForm[inputIdentifier];
         
+        const validation = checkValidity(event.target.value, formElement.validation);
+        const updatedFormElement = updateObject(this.state.orderForm[inputIdentifier], {
+            value: event.target.value,
+            valid: validation.isValid,
+            message:validation.message,
+            touched: true
+        });
+
+        const updatedOrderForm = updateObject(this.state.orderForm,{
+            [inputIdentifier]: updatedFormElement
+        });
+
         let formIsValid= true;
         for (let inputIdentifier in updatedOrderForm){
             if (!updatedOrderForm[inputIdentifier].valid){
@@ -212,4 +186,19 @@ class ContactData extends Component {
 
 }
 
-export default interceptorsHandler(ContactData, axios);
+const mapStateToProps = state => {
+    return {
+        ings: state.burgerBuilder.ingredients,
+        price: state.burgerBuilder.totalPrice,
+        token: state.auth.token,
+        userId: state.auth.userId
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onOrderBurger: (orderData, token) => dispatch(actions.purchaseBurger(orderData, token))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(interceptorsHandler(ContactData, axios));
